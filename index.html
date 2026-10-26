@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Modulation Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">DIGITAL COMMUNICATIONS LAB</p>
+      <h1>Digital Modulation Simulator</h1>
+      <p class="subtitle">ASK and FSK modulation calculated by the Java backend.</p>
+    </header>
+
+    <section class="panel">
+      <label for="bits">Binary input</label>
+      <input id="bits" value="10110101" maxlength="64" autocomplete="off" spellcheck="false">
+      <div class="controls">
+        <label for="mode">Modulation</label>
+        <select id="mode">
+          <option value="ASK">ASK — Amplitude Shift Keying</option>
+          <option value="FSK">FSK — Frequency Shift Keying</option>
+        </select>
+        <button id="simulate">Run simulation</button>
+      </div>
+      <p id="status" role="status">Ready. The Java backend is required to run a simulation.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Input bit sequence</h2>
+      <div id="bitDisplay" class="bits">10110101</div>
+      <h2>Modulated waveform</h2>
+      <canvas id="waveform" width="1000" height="300" aria-label="Modulated waveform"></canvas>
+      <div class="legend"><span class="line"></span> Backend-generated signal</div>
+      <div id="results" class="results">Run a simulation to see the backend results.</div>
+    </section>
+    <footer>Simulation endpoint: <code>POST /api/simulate</code> · Results are computed by Java, not by this page.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
